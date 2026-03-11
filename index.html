@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ko">
 <head>
@@ -7,210 +6,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>신산초등학교</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css" />
 
     <style>
         /* =====================================================================
-           1. RESET & COMMON CSS (요청하신 CSS 기반)
+           1. RESET & COMMON CSS
            ===================================================================== */
-        html {font-size: 20px;}
+        html {font-size: 16px;}
         *, *:before, *:after {-webkit-box-sizing: border-box; box-sizing: border-box;}
-        body {margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif; font-weight: 400; font-size: 0.8rem; color: #333; letter-spacing: -0.5px;}
+        body {margin: 0; padding: 0; font-family: 'Pretendard Variable', 'Malgun Gothic', '맑은 고딕', sans-serif; font-weight: 400; color: #333; letter-spacing: -0.5px;}
         ul, ol, li, dl, dt, dd {margin: 0; padding: 0; list-style: none;}
         h1, h2, h3, h4, h5, h6 {margin: 0; padding: 0; font-weight: normal;}
         a {color: inherit; text-decoration: none;}
-        img {margin: 0; padding: 0; line-height:0; vertical-align: middle; font-size: 0; border: 0;}
+        img {margin: 0; padding: 0; vertical-align: middle; border: 0;}
         button {background: none; border: 0; cursor: pointer;}
-        .hid {position: absolute; width: 1px; height: 1px; clip: rect(0, 0, 0, 0); overflow: hidden;}
         
-        .container { position: relative; width:100%; max-width:1200px; margin:0 auto;}
+        .container { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .container:after { content:""; display:block; clear:both; }
 
         /* =====================================================================
            2. HEADER & NAVIGATION CSS
            ===================================================================== */
-        #header { position: relative; margin: 0 auto; height:130px; background: #fff;}
-        #header:before { position: absolute; top: 70px; left: 0; width: 100%; height: 1px; background: #ddd; z-index:100; content: ""; }
-        #header .header_wrap { width:96%; height: 70px; text-align:right; max-width: 1200px; margin: 0 auto;}
-        #header h1 { position: absolute; top: 10px; left: 0; font-size: 24px; font-weight: bold; color: #6baf31; display: flex; align-items: center;}
-        #header h1 i { font-size: 30px; margin-right: 10px; }
+        #header { position: relative; margin: 0 auto; background: #fff; border-bottom: 1px solid #ddd; padding-top: 15px;}
         
-        #header .topUtil{display:flex; float:right; align-items:center; margin-top:15px;}
-        #header .topUtil .util_wrap {display: flex;  align-items: center;}
-        #header .topUtil .util_wrap li, #header .topUtil .util_wrap > a {position: relative; line-height: 1rem; font-size: 0.75rem; color: #666; font-weight: 600; padding: 0 10px; }
-        #header .topUtil .util_wrap ul {display: flex; align-items: center;}
-        #header .topUtil .util_wrap li:before {content: ""; width: 4px; height: 4px; border-radius: 50%; background: #d2d5d8; position: absolute; top: 8px; right: -2px;}
-        #header .topUtil .util_wrap .util li:last-of-type:before{ display: none;}
+        /* 상단 로고 및 유틸 메뉴 영역 */
+        #header .header_top { display: flex; justify-content: space-between; align-items: flex-end; max-width: 1200px; margin: 0 auto; padding: 0 20px 20px 20px; }
         
-        /* 통합검색창 */
-        .totalSearch { margin-left: 20px; border: 1px solid #ccc; border-radius: 20px; padding: 2px 15px; display: flex; align-items: center;}
-        .totalSearch input { border: none; outline: none; padding: 5px; width: 150px; }
-        .totalSearch button { color: #333; font-size: 16px; }
+        #header h1 { font-size: 26px; font-weight: 800; display: flex; align-items: center; letter-spacing: -1px;}
+        #header h1 a { color: #6db33f; } /* 초록색 로고 텍스트 */
+        
+        #header .topUtil { display: flex; align-items: center; }
+        #header .topUtil .util_wrap { display: flex; align-items: center; font-size: 0.85rem; color: #666; font-weight: 500; }
+        #header .topUtil .util_wrap li { position: relative; padding: 0 12px; display: flex; align-items: center; }
+        #header .topUtil .util_wrap li:not(:last-child)::after { content: "·"; position: absolute; right: -2px; color: #ccc; }
+        #header .topUtil .util_wrap li a:hover { text-decoration: underline; color: #333; }
+        
+        /* 검색창 */
+        .totalSearch { margin-left: 15px; border: 1px solid #ddd; border-radius: 20px; padding: 4px 15px; display: flex; align-items: center; background: #fff;}
+        .totalSearch input { border: none; outline: none; padding: 4px; width: 140px; font-size: 0.85rem; font-family: inherit;}
+        .totalSearch button { color: #666; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+        .totalSearch button::before { content: "🔍"; font-size: 14px; }
 
-        #nav{ position:relative; width:100%; z-index:99; }
-        #gnb{ position:relative; height:50px; z-index:2; }
-        #gnb .depth01 > ul{ display:flex; width:100%; text-align:center; max-width: 1200px; margin: 0 auto;}
-        #gnb .depth01 > ul > li { flex:1;}
-        #gnb .depth01 > ul > li > a{ display:flex; width:100%; height:3rem; justify-content: center; align-items: center; font-size:0.95rem; color:#333; font-weight:bold; }
+        /* 네비게이션 (GNB) */
+        #nav { border-top: 1px solid #eee; }
+        #gnb { position: relative; height: 55px; z-index: 2; }
+        #gnb .depth01 > ul { display: flex; width: 100%; height: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+        #gnb .depth01 > ul > li { flex: 1; text-align: center; }
+        #gnb .depth01 > ul > li > a { display: flex; width: 100%; height: 100%; justify-content: center; align-items: center; font-size: 1.05rem; color: #222; font-weight: 700; white-space: nowrap; }
         #gnb .depth01 > ul > li > a:hover { color: #2b82c9; }
-        #gnb .depth02 { display: none; } /* 원본 GNB 드롭다운 숨김처리 (간소화) */
 
         /* =====================================================================
-           3. MAIN CONTENT CSS (누락된 T0006.css 대체용 직접 작성)
+           3. MAIN CONTENT CSS
            ===================================================================== */
-        #container { padding-bottom: 50px; }
-        .MC_wrap1 .container { display: flex; gap: 40px; margin-top: 40px; }
+        #container_main { padding-bottom: 60px; }
+        .MC_wrap1 .container { display: flex; gap: 40px; margin-top: 50px; }
         
         /* 왼쪽 컬럼 (공지사항, 식단) */
-        .MC_cont { width: 45%; display: flex; flex-direction: column; gap: 30px; }
+        .MC_cont { width: 45%; display: flex; flex-direction: column; gap: 40px; }
         
-        /* 공지사항 */
-        .notice0006 { position: relative; }
-        .notice0006 .titTab ul { display: flex; gap: 20px; font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; }
-        .notice0006 .titTab li { cursor: pointer; color: #888; }
-        .notice0006 .titTab li.on { color: #fff; background: #ff8c00; padding: 2px 15px; border-radius: 20px; }
-        .notice0006 .list_box li { display: flex; justify-content: space-between; padding: 8px 0; font-size: 0.9rem; color: #555; }
-        .notice0006 .list_box li:before { content: "•"; color: #ccc; margin-right: 8px; }
-        .notice0006 .list_box a { display: flex; justify-content: space-between; width: 100%; }
-        .notice0006 .list_box a:hover { text-decoration: underline; }
-        
-        /* 식단 */
-        .meal_menu0006 { position: relative; margin-top: 20px; }
-        .meal_menu0006 h2 { font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; }
-        .meal_menu0006 .inner { background: #e3f2fd; border-radius: 20px; padding: 25px; display: flex; justify-content: space-between; align-items: center; min-height: 150px; }
-        .meal_menu0006 .kcal { display: inline-block; background: #82b1ff; color: #fff; font-size: 0.8rem; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; font-weight: bold; }
-        .meal_menu0006 .kcal em { color: #0d47a1; font-style: normal; margin-left: 5px; }
-        .meal_menu0006 .meal_list { font-size: 0.9rem; line-height: 1.6; color: #333; }
-        .meal_icon { width: 80px; height: 80px; background: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 2px solid #333; font-size: 30px; }
+        /* 더보기 버튼 (동그란 플러스 버튼) */
+        .btn_more { position: absolute; top: 0; right: 0; width: 32px; height: 32px; background: #f1f3f5; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #888; text-decoration: none; font-size: 18px; font-weight: 300; transition: 0.2s;}
+        .btn_more:hover { background: #e9ecef; color: #333; }
+        .btn_more::before { content: "+"; }
 
-        /* 더보기 버튼 */
-        .btn_more { position: absolute; top: 0; right: 0; width: 30px; height: 30px; background: #f0f0f0; border-radius: 50%; text-align: center; line-height: 30px; color: #888; }
+        /* 공지사항 탭 */
+        .notice0006 { position: relative; }
+        .notice0006 .titTab ul { display: flex; gap: 15px; font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; align-items: center;}
+        .notice0006 .titTab li { cursor: pointer; color: #adb5bd; }
+        .notice0006 .titTab li.on { color: #fff; background: #ff922b; padding: 6px 20px; border-radius: 25px; }
         
+        .notice0006 .list_box li { padding: 10px 0; font-size: 1rem; color: #495057; border-bottom: 1px solid transparent; }
+        .notice0006 .list_box li a { display: flex; justify-content: space-between; width: 100%; align-items: center; }
+        .notice0006 .list_box li a:hover .title { text-decoration: underline; color: #212529; }
+        .notice0006 .list_box li .title { display: inline-block; max-width: 75%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+        .notice0006 .list_box li .title::before { content: "·"; margin-right: 8px; font-weight: bold; color: #adb5bd; }
+        .notice0006 .list_box li .date { color: #868e96; font-size: 0.95rem; }
+        
+        /* 오늘의 식단 */
+        .meal_menu0006 { position: relative; }
+        .meal_menu0006 h2 { font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; color: #212529;}
+        .meal_menu0006 .inner { background: #e3f2fd; border-radius: 20px; padding: 30px; display: flex; justify-content: space-between; align-items: center; min-height: 180px; }
+        
+        .meal_menu0006 .kcal { display: inline-block; background: #82b1ff; color: #fff; font-size: 0.9rem; padding: 6px 16px; border-radius: 20px; margin-bottom: 15px; }
+        .meal_menu0006 .kcal strong { margin-right: 5px; font-weight: 700;}
+        .meal_menu0006 .kcal em { font-style: normal; color: #0d47a1; font-weight: 600;}
+        
+        .meal_menu0006 .meal_list { font-size: 1rem; line-height: 1.7; color: #343a40; word-break: keep-all;}
+        
+        /* 식단 빈 동그라미 대신 아이콘 처리 */
+        .meal_icon { width: 80px; height: 80px; background: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 1px solid #ced4da; font-size: 35px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);}
+        .meal_icon::before { content: "🍲"; } /* 음식 이모지 삽입 */
+
         /* 오른쪽 메인 비주얼 배너 */
         .MC_box1 { width: 55%; }
-        .MVisual0006 { background: #eaf5e1; border-radius: 30px; height: 100%; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: 40px; min-height: 450px;}
-        .MVisual0006 .item h2 { font-size: 2rem; color: #333; line-height: 1.4; margin-bottom: 10px; font-weight: bold;}
-        .MVisual0006 .item h2 span { color: #2196f3; font-size: 2.5rem; }
-        .MVisual0006 .item p { font-size: 1.1rem; color: #555; margin-top: 15px; }
-        .MVisual0006 .control { position: absolute; bottom: 30px; right: 30px; background: rgba(0,0,0,0.4); border-radius: 20px; padding: 5px 15px; color: #fff; display: flex; gap: 15px; font-size: 14px; align-items: center; cursor: pointer; }
-
-        /* 하단 컨텐츠 영역 (팝업/갤러리) */
-        .MC_wrap2 { background: #5c9dec; margin-top: 60px; border-radius: 60px 60px 0 0; padding: 40px 0 60px; color: #fff; }
-        .MC_wrap2 .container { display: flex; gap: 40px; }
-        .MC_box4 { display: none; } /* 행사일정은 레이아웃 균형을 위해 임시 숨김 */
-        .inBox { width: 100%; display: flex; gap: 40px; }
+        .MVisual0006 { background: #edf4e8; border-radius: 25px; height: 100%; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: 60px 50px; min-height: 480px;}
+        .MVisual0006 .item h2 { font-size: 2.3rem; color: #343a40; line-height: 1.4; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px;}
+        .MVisual0006 .item h2 span { color: #228be6; font-size: 3rem; display: block; margin-top: 5px; }
+        .MVisual0006 .item p { font-size: 1.15rem; color: #495057; }
         
-        /* 팝업존 */
-        .pop0006 { flex: 1; }
-        .pop0006 .tit_wrap { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .pop0006 h2 { font-size: 1.2rem; font-weight: bold; }
-        .pop0006 .control { font-size: 0.9rem; display: flex; gap: 10px; align-items: center; cursor: pointer; }
-        .pop_img .item { background: #fff; border-radius: 20px; padding: 30px; text-align: center; color: #333; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .pop_img .item h4 { font-size: 1.5rem; margin-bottom: 10px; font-weight: bold;}
-        .pop_img .item span { color: #ff5722; }
+        /* 배너 컨트롤 버튼 */
+        .MVisual0006 .control { position: absolute; bottom: 30px; right: 30px; background: rgba(0,0,0,0.25); border-radius: 20px; padding: 8px 15px; color: #fff; display: flex; gap: 12px; font-size: 12px; align-items: center; }
+        .MVisual0006 .control span { cursor: pointer; display: flex; align-items: center; justify-content: center;}
         
-        /* 갤러리 */
-        .gallery0006 { flex: 2.5; position: relative; }
-        .gallery0006 .tit_wrap h2 { font-size: 1.2rem; font-weight: bold; margin-bottom: 20px; }
-        .gallery0006 .list_box ul { display: flex; gap: 20px; }
-        .gallery0006 .list_box li { flex: 1; height: 200px; background: #ddd; border-radius: 15px; overflow: hidden; position: relative; }
-        .gallery0006 .list_box li img { width: 100%; height: 100%; object-fit: cover; }
-        .gallery0006 .btn_more { background: rgba(255,255,255,0.3); color: #fff; top: -5px; }
-
-        /* 배너존 하단 */
-        .banner_zone { background: #f9f9f9; padding: 20px 0; border-top: 1px solid #ddd; margin-top: 60px; }
-        .banner_zone .container { display: flex; align-items: center; }
-        .banner_zone h2 { font-size: 1rem; font-weight: bold; margin-right: 20px; }
-        .banner_zone .bnWrap { display: flex; gap: 10px; overflow: hidden;}
-        .banner_zone .item { background: #fff; border: 1px solid #eee; padding: 5px 15px; border-radius: 5px; font-size: 0.8rem;}
-
         /* =====================================================================
            4. FOOTER CSS
            ===================================================================== */
-        #footer { position: relative; padding: 1.5rem 0 2.5rem; font-weight:400; font-size: 0.8rem; background: #fff; color: #666;}
-        .footer_link { padding-bottom:1rem; border-bottom: 1px solid #eee; margin-bottom: 1rem;}
-        .footer_link ul {display: flex; gap: 20px; }
-        .footer_link li > a strong { font-weight:bold; color: #333;}
-        #footer address { line-height: 1.8; }
-        .copyright { margin-top: 10px; color: #999; }
+        #footer { background: #f8f9fa; padding: 40px 0; border-top: 1px solid #e9ecef; margin-top: 60px; color: #495057;}
+        .footer_link { padding-bottom: 20px; border-bottom: 1px solid #dee2e6; margin-bottom: 20px;}
+        .footer_link ul {display: flex; gap: 30px; }
+        .footer_link li > a { font-size: 0.95rem; }
+        .footer_link li > a strong { font-weight: 700; color: #212529;}
+        .footer_link li > a:hover { text-decoration: underline; }
+        
+        #footer address { line-height: 1.8; font-size: 0.9rem; color: #686f75;}
+        .copyright { margin-top: 15px; color: #868e96; font-size: 0.85rem;}
     </style>
 </head>
 <body>
 
     <header id="header">
-        <div class="header_wrap container">
-            <h1><i class="xi-emoticon-happy"></i> 신산초등학교</h1>
+        <div class="header_top container">
+            <h1><a href="https://sinsan-e.goepj.kr/sinsan-e/main.do">신산초등학교</a></h1>
+            
             <div class="topUtil">
-                <div class="util_wrap">
-                    <a href="#">홈</a>
-                    <ul class="user">
-                        <li class="name mob">로그인 후 학교서비스를 이용해주세요</li>
-                        <li><a href="#">로그인</a></li>
-                        <li><a href="#">회원가입</a></li>
-                    </ul>
-                    <ul class="util">
-                        <li><a href="#">사이트맵</a></li>
-                    </ul>
-                </div>
+                <ul class="util_wrap">
+                    <li><a href="https://sinsan-e.goepj.kr/sinsan-e/main.do">홈</a></li>
+                    <li class="mob">로그인 후 학교서비스를 이용해주세요</li>
+                    <li><a href="https://sinsan-e.goepj.kr/sinsan-e/lo/login/loginTotalPage.do">로그인</a></li>
+                    <li><a href="https://www.goepj.kr/sinsan-e/sb/sbscrb/insertSbscrbInfo01.do?sbscrbCtx=sinsan-e" target="_blank">회원가입</a></li>
+                    <li><a href="https://sinsan-e.goepj.kr/sinsan-e/sitemap.do">사이트맵</a></li>
+                </ul>
                 <div class="totalSearch">
                     <input type="text" placeholder="검색어를 입력해주세요" title="검색어를 입력해주세요">
-                    <button type="button"><i class="xi-search" aria-hidden="true"></i></button>
+                    <button type="button"></button>
                 </div>
             </div>
         </div>
         
-        <div id="nav" class="oneDown">
-            <div id="gnb">
-                <div class="depth01 depWidth">
+        <nav id="nav">
+            <div id="gnb" class="container">
+                <div class="depth01">
                     <ul>
-                        <li><a href="#"><span>학교소개</span></a></li>
-                        <li><a href="#"><span>열린마당</span></a></li>
-                        <li><a href="#"><span>학부모마당</span></a></li>
-                        <li><a href="#"><span>학교운영 위원회</span></a></li>
-                        <li><a href="#"><span>학교혁신</span></a></li>
-                        <li><a href="#"><span>학교재정 공개</span></a></li>
-                        <li><a href="#"><span>학교시설개방 민원창구</span></a></li>
-                        <li><a href="#"><span>유치원</span></a></li>
-                        <li><a href="#"><span>어린이방</span></a></li>
-                        <li><a href="#"><span>학교앨범</span></a></li>
-                        <li><a href="#"><span>도서관</span></a></li>
-                        <li><a href="#"><span>학교역사</span></a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/cm/cntnts/cntntsView.do?mi=9293&cntntsId=3064">학교소개</a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/na/ntt/selectNttList.do?mi=9301&bbsId=6303">열린마당</a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/na/ntt/selectNttList.do?mi=9365&bbsId=6321">학부모마당</a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/cm/cntnts/cntntsView.do?mi=9375&cntntsId=3092">학교운영 위원회</a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/na/ntt/selectNttList.do?mi=9392&bbsId=6342">학교혁신</a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/na/ntt/selectNttList.do?mi=9405&bbsId=6351">학교재정 공개</a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/na/ntt/selectNttList.do?mi=10921&bbsId=7266">학교시설개방 민원창구</a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/na/ntt/selectNttList.do?mi=9435&bbsId=6374">유치원</a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/cm/cntnts/cntntsView.do?mi=9439&cntntsId=3094">어린이방</a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/na/ntt/selectNttList.do?mi=9448&bbsId=6381">학교앨범</a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/na/ntt/selectNttList.do?mi=9479&bbsId=6403">도서관</a></li>
+                        <li><a href="https://sinsan-e.goepj.kr/sinsan-e/na/ntt/selectNttList.do?mi=9481&bbsId=6404">학교역사</a></li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <div id="container">                
+    <main id="container_main">                
         <div class="MC_wrap1">
             <div class="container">
                 
                 <div class="MC_cont">
-                    <div class="notice0006">
+                    
+                    <section class="notice0006">
                         <div class="titTab">
                             <ul>
                                 <li class="on"><span>공지사항</span></li>
                                 <li><span>가정통신문</span></li>
                             </ul>
                         </div>
-                        <a href="#" class="btn_more"><i class="xi-plus" aria-hidden="true"></i></a> 
-                        <div class="tabWrap">
-                            <div class="list_box on">
-                                <ul>
-                                    <li><a href="#"><span>2026학년도 사용 교과서</span> <span>2026.03.06</span></a></li>
-                                    <li><a href="#"><span>신산초등학교 학교장허가 교외체험학습 신청서 및 보고서</span> <span>2026.03.04</span></a></li>
-                                    <li><a href="#"><span>신산초등학교 결석신고서</span> <span>2026.03.04</span></a></li>
-                                    <li><a href="#"><span>2026학년도 학부모회 임원 선출 공고</span> <span>2026.03.03</span></a></li>
-                                    <li><a href="#"><span>2026년 1월 공기정화장치 점검결과</span> <span>2026.03.03</span></a></li>
-                                </ul>
-                            </div>
+                        <a href="https://sinsan-e.goepj.kr/sinsan-e/na/ntt/selectNttList.do?mi=9301&bbsId=6303" class="btn_more" title="공지사항 더보기"></a> 
+                        
+                        <div class="list_box">
+                            <ul>
+                                <li><a href="#"><span class="title">2026학년도 사용 교과서</span> <span class="date">2026.03.06</span></a></li>
+                                <li><a href="#"><span class="title">신산초등학교 학교장허가 교외체험학습 신청서 및 보고서</span> <span class="date">2026.03.04</span></a></li>
+                                <li><a href="#"><span class="title">신산초등학교 결석신고서</span> <span class="date">2026.03.04</span></a></li>
+                                <li><a href="#"><span class="title">2026학년도 학부모회 임원 선출 공고</span> <span class="date">2026.03.03</span></a></li>
+                                <li><a href="#"><span class="title">2026년 1월 공기정화장치 점검결과</span> <span class="date">2026.03.03</span></a></li>
+                            </ul>
                         </div>
-                    </div>
+                    </section>
                     
-                    <div class="meal_menu0006">
+                    <section class="meal_menu0006">
                         <h2>오늘의 식단</h2>
-                        <a href="#" class="btn_more"><i class="xi-plus" aria-hidden="true"></i></a> 
+                        <a href="https://sinsan-e.goepj.kr/sinsan-e/ad/fm/foodmenu/selectFoodMenuView.do?mi=9306" class="btn_more" title="오늘의 식단 더보기"></a> 
+                        
                         <div class="inner">
                             <div>
                                 <div class="kcal"><strong>중식</strong> <em>703.4 kcal</em></div>
@@ -221,88 +205,36 @@
                                     수제파닭/레몬소스 (5.6.13.15)
                                 </div>
                             </div>
-                            <div class="meal_icon"><i class="xi-restaurant"></i></div>
-                        </div>
-                    </div>  
+                            <div class="meal_icon"></div> </div>
+                    </section>  
+
                 </div>
 
                 <div class="MC_box1">
-                    <div class="MVisual0006">
+                    <section class="MVisual0006">
                         <div class="item">
                             <h2>더불어 성장하며 창의적인<br><span>행복 신산교육</span></h2>
                             <p>우리 학교 홈페이지 방문을 환영합니다.</p>
                         </div>
                         <div class="control">
-                            <i class="xi-angle-left"></i>
-                            <i class="xi-pause"></i>
-                            <i class="xi-angle-right"></i>
+                            <span>◀</span>
+                            <span>II</span>
+                            <span>▶</span>
                         </div>
-                    </div>
+                    </section>
                 </div>
 
             </div>
         </div>
-        
-        <div class="MC_wrap2">
-            <div class="container">
-                <div class="inBox">
-                    
-                    <div class="pop0006">
-                        <div class="tit_wrap">
-                            <h2>팝업존</h2>
-                            <div class="control">
-                                <span>1 / 2</span>
-                                <i class="xi-arrow-left"></i>
-                                <i class="xi-pause"></i>
-                                <i class="xi-arrow-right"></i>
-                            </div>
-                        </div>
-                        <div class="pop_img">
-                            <div class="item">
-                                <h4>홈페이지 <span>리뉴얼</span></h4>
-                                <p>홈페이지 리뉴얼을 하였습니다.<br>많은 이용 부탁드립니다.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="gallery0006">
-                        <div class="tit_wrap">
-                            <h2>포토갤러리</h2>
-                            <a href="#" class="btn_more"><i class="xi-ellipsis-h" aria-hidden="true"></i></a> 
-                        </div>
-                        <div class="list_box">
-                            <ul>                                
-                                <li><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=400&h=300" alt="갤러리1"></li>
-                                <li><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=400&h=300" alt="갤러리2"></li>
-                                <li><img src="https://images.unsplash.com/photo-1510531704581-5b28709220a6?auto=format&fit=crop&q=80&w=400&h=300" alt="갤러리3"></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        
-        <div class="banner_zone">
-            <div class="container">
-                <h2>배너모음</h2>
-                <div class="bnWrap">
-                    <div class="item">개인정보보호 캠페인</div>
-                    <div class="item">성범죄자알림e</div>
-                    <div class="item">학부모온누리</div>
-                    <div class="item">안전신문고</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </main>
     
     <footer id="footer">
         <div class="container">
             <div class="footer_link">
                 <ul>
-                    <li><a href="#"><strong>개인정보처리방침</strong></a></li>
-                    <li><a href="#">영상정보처리기기운영관리방침</a></li>
-                    <li><a href="#">저작권보호방침</a></li>
+                    <li><a href="https://sinsan-e.goepj.kr/sinsan-e/iv/indvdlView/selectIndvdlView.do"><strong>개인정보처리방침</strong></a></li>
+                    <li><a href="https://sinsan-e.goepj.kr/sinsan-e/iv/indvdlView/selectVideoView.do">영상정보처리기기운영관리방침</a></li>
+                    <li><a href="https://sinsan-e.goepj.kr/sinsan-e/iv/indvdlView/selectCpyrhtView.do">저작권보호방침</a></li>
                 </ul>
             </div>
             
